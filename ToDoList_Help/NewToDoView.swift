@@ -33,15 +33,18 @@ struct NewToDoView: View {
             Text("Task title")
                 .font(.system(size: 30))
                 .fontWeight(.bold)
-                .foregroundColor(Color(hue: 0.307, saturation: 0.425, brightness: 0.767))
+                .foregroundColor(Color(hue: 0.307, saturation: 0.469, brightness: 0.566))
             
             
             //Add TextField here with the Text "Enter task description" and binded to the title state property (text: $title)
             
-            TextField("Enter task description", text: $title)
+            TextField("Enter task description...", text: $title)
                 .frame(height: 50.0)
                 .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .padding()
+            
+                
+                            
             
             //Add Toggle here that is binded to isImportant (isOn: $isImportant) and the text "Is it important?"
             
@@ -49,7 +52,7 @@ struct NewToDoView: View {
                 Text("Is it important?")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color(hue: 0.341, saturation: 0.577, brightness: 0.626))
+                    .foregroundColor(Color(red: 0.339, green: 0.567, blue: 0.3))
                     
             }
             
@@ -57,6 +60,7 @@ struct NewToDoView: View {
             
             
             .padding()
+            .textFieldStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Text Field Style@*/DefaultTextFieldStyle()/*@END_MENU_TOKEN@*/)
             
             //Add Button here, delete any code in the action and with the text "Add"
             
