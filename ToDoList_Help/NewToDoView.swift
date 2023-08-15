@@ -24,7 +24,12 @@ struct NewToDoView: View {
     //Bind the ToDoItems array here
         //Delete the ToDoItems array binding in iteration 2
     
+    @Binding var toDoItems:
+        [ToDoItem]
+    
     //Bind the showNewTask property here
+    
+    @Binding var showNewTask : Bool
     
     var body: some View {
         VStack {
@@ -66,6 +71,10 @@ struct NewToDoView: View {
             
             Button(action: {
                 
+                self.showNewTask = false
+                
+                self.addTask(title: self.title, isImportant: self.isImportant)
+                
             }) {
                 Text("Add")
                     .foregroundColor(Color.blue)
@@ -81,16 +90,22 @@ struct NewToDoView: View {
     }
     //Add the private function addTask here
         //In Iteration 2, update the function to save input to Core Data
+    
+    private func addTask(title: String, isImportant: Bool = false) {
+            
+            let task = ToDoItem(title: title, isImportant: isImportant)
+            toDoItems.append(task)
+        }
 }
 
 struct NewToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        NewToDoView(title: "", isImportant: false)
+        NewToDoView(title: "", isImportant: false, toDoItems: .constant([]), showNewTask: .constant(true))
         
             //Add toDoItems: .constant([]) here (Iteration 1)
+        
             //Add showNewTask: .constant(true) (Iteration 1)
-            //Delete toDoItems: .constant([]) (Iteration 2_
-
+            //Delete toDoItems: .constant([]) (Iteration 2
 
     }
 }
