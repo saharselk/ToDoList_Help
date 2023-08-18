@@ -82,7 +82,7 @@ struct ContentView: View {
         
         if showNewTask {
             NewToDoView(title: "", isImportant: false,toDoItems: $toDoItems, showNewTask: $showNewTask)
-                .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
+                .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.6)))
             
                 }
                 
